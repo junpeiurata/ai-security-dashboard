@@ -43,8 +43,10 @@ export default function Compliance() {
     <section>
       <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
         <div>
-          <h2 className="text-2xl font-bold text-white">Compliance</h2>
-          <p className="mt-2 text-slate-400">
+          <h2 className="text-2xl font-bold text-white light:text-slate-950">
+            Compliance
+          </h2>
+          <p className="mt-2 text-slate-400 light:text-slate-600">
             Monitor regulatory compliance and audit-ready evidence.
           </p>
         </div>
@@ -79,12 +81,12 @@ export default function Compliance() {
         </div>
       </div>
 
-      <div className="mt-6 rounded-2xl border border-slate-800 bg-slate-900 p-6">
+      <div className="mt-6 rounded-2xl border border-slate-800 bg-slate-900 p-6 transition-colors duration-300 light:border-slate-200 light:bg-white">
         <div className="mb-6">
-          <h3 className="text-lg font-semibold text-white">
+          <h3 className="text-lg font-semibold text-white light:text-slate-950">
             Compliance Trend
           </h3>
-          <p className="mt-1 text-sm text-slate-400">
+          <p className="mt-1 text-sm text-slate-400 light:text-slate-600">
             Overall compliance score over time.
           </p>
         </div>
@@ -92,9 +94,9 @@ export default function Compliance() {
         <div className="h-72">
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart data={complianceTrendData}>
-              <CartesianGrid strokeDasharray="4 4" stroke="#334155" />
-              <XAxis dataKey="month" stroke="#94a3b8" fontSize={12} />
-              <YAxis domain={[70, 100]} stroke="#94a3b8" fontSize={12} />
+              <CartesianGrid strokeDasharray="4 4" stroke="#64748b" />
+              <XAxis dataKey="month" stroke="#64748b" fontSize={12} />
+              <YAxis domain={[70, 100]} stroke="#64748b" fontSize={12} />
               <Tooltip
                 contentStyle={{
                   backgroundColor: "#0f172a",
@@ -117,7 +119,7 @@ export default function Compliance() {
       </div>
 
       <div className="mt-6">
-        <h3 className="mb-4 text-lg font-semibold text-white">
+        <h3 className="mb-4 text-lg font-semibold text-white light:text-slate-950">
           Compliance Frameworks
         </h3>
 
@@ -129,10 +131,10 @@ export default function Compliance() {
       </div>
 
       <div className="mt-6 grid gap-6 xl:grid-cols-2">
-        <div className="rounded-2xl border border-slate-800 bg-slate-900 p-6">
+        <div className="rounded-2xl border border-slate-800 bg-slate-900 p-6 transition-colors duration-300 light:border-slate-200 light:bg-white">
           <div className="mb-5 flex items-center gap-3">
-            <AlertTriangle className="text-amber-400" size={22} />
-            <h3 className="text-lg font-semibold text-white">
+            <AlertTriangle className="text-amber-400 light:text-amber-600" size={22} />
+            <h3 className="text-lg font-semibold text-white light:text-slate-950">
               Compliance Gaps
             </h3>
           </div>
@@ -141,12 +143,14 @@ export default function Compliance() {
             {complianceGaps.map((gap) => (
               <div
                 key={gap.title}
-                className="rounded-xl border border-slate-800 bg-slate-950 p-4"
+                className="rounded-xl border border-slate-800 bg-slate-950 p-4 transition-colors duration-300 light:border-slate-200 light:bg-slate-50"
               >
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <h4 className="font-medium text-white">{gap.title}</h4>
-                    <p className="mt-2 text-sm text-slate-400">
+                    <h4 className="font-medium text-white light:text-slate-950">
+                      {gap.title}
+                    </h4>
+                    <p className="mt-2 text-sm text-slate-400 light:text-slate-600">
                       {gap.framework} •{" "}
                       <span className="font-mono">{gap.page}</span>
                     </p>
@@ -159,10 +163,10 @@ export default function Compliance() {
           </div>
         </div>
 
-        <div className="rounded-2xl border border-slate-800 bg-slate-900 p-6">
+        <div className="rounded-2xl border border-slate-800 bg-slate-900 p-6 transition-colors duration-300 light:border-slate-200 light:bg-white">
           <div className="mb-5 flex items-center gap-3">
-            <FileCheck className="text-cyan-400" size={22} />
-            <h3 className="text-lg font-semibold text-white">
+            <FileCheck className="text-cyan-400 light:text-cyan-600" size={22} />
+            <h3 className="text-lg font-semibold text-white light:text-slate-950">
               Audit-Ready Evidence
             </h3>
           </div>
@@ -171,12 +175,14 @@ export default function Compliance() {
             {auditEvidence.map((item) => (
               <div
                 key={item}
-                className="flex items-center gap-3 rounded-xl border border-slate-800 bg-slate-950 p-4"
+                className="flex items-center gap-3 rounded-xl border border-slate-800 bg-slate-950 p-4 transition-colors duration-300 light:border-slate-200 light:bg-slate-50"
               >
-                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-400">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-400 light:text-emerald-600">
                   <ShieldCheck size={18} />
                 </div>
-                <p className="text-sm text-slate-300">{item}</p>
+                <p className="text-sm text-slate-300 light:text-slate-700">
+                  {item}
+                </p>
               </div>
             ))}
           </div>
@@ -190,21 +196,23 @@ function ComplianceLoadingState() {
   return (
     <section>
       <div>
-        <h2 className="text-2xl font-bold text-white">Compliance</h2>
-        <p className="mt-2 text-slate-400">
+        <h2 className="text-2xl font-bold text-white light:text-slate-950">
+          Compliance
+        </h2>
+        <p className="mt-2 text-slate-400 light:text-slate-600">
           Analyzing compliance status and preparing audit evidence...
         </p>
       </div>
 
-      <div className="mt-6 h-36 animate-pulse rounded-2xl bg-slate-800"></div>
+      <div className="mt-6 h-36 animate-pulse rounded-2xl bg-slate-800 light:bg-slate-200"></div>
 
-      <div className="mt-6 h-80 animate-pulse rounded-2xl bg-slate-800"></div>
+      <div className="mt-6 h-80 animate-pulse rounded-2xl bg-slate-800 light:bg-slate-200"></div>
 
       <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
         {[1, 2, 3].map((item) => (
           <div
             key={item}
-            className="h-56 animate-pulse rounded-2xl bg-slate-800"
+            className="h-56 animate-pulse rounded-2xl bg-slate-800 light:bg-slate-200"
           ></div>
         ))}
       </div>

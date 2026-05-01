@@ -24,28 +24,34 @@ export default function App() {
 
   function renderPage() {
     if (activePage === "overview") return <Dashboard />;
+
     if (activePage === "alerts") {
       return <Alerts onViewDetails={handleViewAlertDetails} />;
     }
+
     if (activePage === "alert-detail") {
       return <AlertDetail alert={selectedAlert} onBack={handleBackToAlerts} />;
     }
+
     if (activePage === "compliance") return <Compliance />;
+
     if (activePage === "settings") return <Settings />;
+
     return <Dashboard />;
   }
 
   return (
     <div className={isDarkMode ? "dark" : "light"}>
-      <div className="min-h-screen bg-slate-950 text-slate-100 transition-colors duration-300 light:bg-slate-50 light:text-slate-950">
-        <div className="flex min-h-screen">
+      <div className="min-h-screen overflow-x-hidden bg-slate-950 text-slate-100 transition-colors duration-300 light:bg-slate-50 light:text-slate-950">
+        <div className="flex min-h-screen overflow-x-hidden">
           <Sidebar activePage={activePage} setActivePage={setActivePage} />
 
-          <main className="flex-1">
+          <main className="min-w-0 flex-1 overflow-x-hidden">
             <Topbar
               isDarkMode={isDarkMode}
               onToggleTheme={() => setIsDarkMode(!isDarkMode)}
             />
+
             <div className="p-6 lg:p-8">{renderPage()}</div>
           </main>
         </div>
