@@ -25,8 +25,10 @@ export default function Settings() {
     <section>
       <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
         <div>
-          <h2 className="text-2xl font-bold text-white">Settings</h2>
-          <p className="mt-2 text-slate-400">
+          <h2 className="text-2xl font-bold text-white light:text-slate-950">
+            Settings
+          </h2>
+          <p className="mt-2 text-slate-400 light:text-slate-600">
             Manage account preferences, alert notifications, and security scan settings.
           </p>
         </div>
@@ -40,7 +42,7 @@ export default function Settings() {
         </button>
       </div>
 
-      <div className="mt-6 grid gap-6 xl:grid-cols-[1fr_1fr]">
+      <div className="mt-6 grid gap-6 xl:grid-cols-2">
         <SettingsCard
           icon={<User size={22} />}
           title="Profile & Account"
@@ -48,8 +50,8 @@ export default function Settings() {
         >
           <div className="space-y-4">
             <InputField label="Full Name" value="Junpei Urata" />
-            <InputField label="Work Email" value="Junpei_u@company.com" />
-            <InputField label="Company" value="Dashboard Ai" />
+            <InputField label="Work Email" value="junpei_u@company.com" />
+            <InputField label="Company" value="Northstar Digital" />
             <InputField label="Role" value="Security Operations Lead" />
           </div>
         </SettingsCard>
@@ -103,12 +105,12 @@ export default function Settings() {
               onToggle={() => setBlockUnknownScripts(!blockUnknownScripts)}
             />
 
-            <div className="rounded-xl border border-slate-800 bg-slate-950 p-4">
-              <label className="text-sm font-medium text-slate-300">
+            <div className="rounded-xl border border-slate-800 bg-slate-950 p-4 light:border-slate-200 light:bg-slate-50">
+              <label className="text-sm font-medium text-slate-300 light:text-slate-700">
                 Scan frequency
               </label>
 
-              <select className="mt-3 w-full rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 text-sm text-white outline-none">
+              <select className="mt-3 w-full rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 text-sm text-white outline-none light:border-slate-300 light:bg-white light:text-slate-950">
                 <option>Every 15 minutes</option>
                 <option>Every hour</option>
                 <option>Every 6 hours</option>
@@ -125,22 +127,26 @@ export default function Settings() {
         >
           <div className="grid gap-3 sm:grid-cols-2">
             <button className="rounded-xl border border-cyan-500 bg-cyan-500/10 p-4 text-left">
-              <p className="font-semibold text-white">Dark Mode</p>
-              <p className="mt-2 text-sm text-slate-400">
+              <p className="font-semibold text-white light:text-slate-950">
+                Dark Mode
+              </p>
+              <p className="mt-2 text-sm text-slate-400 light:text-slate-600">
                 Optimized for security monitoring.
               </p>
             </button>
 
-            <button className="rounded-xl border border-slate-700 bg-slate-950 p-4 text-left hover:border-slate-500">
-              <p className="font-semibold text-white">Light Mode</p>
-              <p className="mt-2 text-sm text-slate-400">
+            <button className="rounded-xl border border-slate-700 bg-slate-950 p-4 text-left hover:border-slate-500 light:border-slate-200 light:bg-white light:hover:border-slate-400">
+              <p className="font-semibold text-white light:text-slate-950">
+                Light Mode
+              </p>
+              <p className="mt-2 text-sm text-slate-400 light:text-slate-600">
                 Cleaner layout for reporting.
               </p>
             </button>
           </div>
 
-          <p className="mt-4 rounded-xl border border-slate-800 bg-slate-950 p-4 text-sm text-slate-400">
-            The working dark/light mode toggle will be added in the next build step.
+          <p className="mt-4 rounded-xl border border-slate-800 bg-slate-950 p-4 text-sm text-slate-400 light:border-slate-200 light:bg-slate-50 light:text-slate-600">
+            Use the theme icon in the top bar to switch between dark and light mode.
           </p>
         </SettingsCard>
       </div>
@@ -151,19 +157,19 @@ export default function Settings() {
           title="API Key"
           description="Use this demo API key to connect monitored websites."
         >
-          <div className="rounded-xl border border-slate-800 bg-slate-950 p-4">
-            <label className="text-sm font-medium text-slate-300">
+          <div className="rounded-xl border border-slate-800 bg-slate-950 p-4 light:border-slate-200 light:bg-slate-50">
+            <label className="text-sm font-medium text-slate-300 light:text-slate-700">
               Demo API Key
             </label>
 
             <div className="mt-3 flex flex-col gap-3 sm:flex-row">
-              <code className="flex-1 rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 text-sm text-cyan-300">
+              <code className="flex-1 rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 text-sm text-cyan-300 light:border-slate-300 light:bg-white light:text-cyan-700">
                 sk_demo_••••••••••••••••7892
               </code>
 
               <button
                 onClick={() => alert("Demo API key copied.")}
-                className="rounded-xl border border-slate-700 px-4 py-3 text-sm font-semibold text-white hover:bg-slate-800"
+                className="rounded-xl border border-slate-700 px-4 py-3 text-sm font-semibold text-white hover:bg-slate-800 light:border-slate-300 light:text-slate-950 light:hover:bg-slate-100"
               >
                 Copy
               </button>
@@ -181,10 +187,12 @@ export default function Settings() {
               (site) => (
                 <div
                   key={site}
-                  className="flex items-center justify-between rounded-xl border border-slate-800 bg-slate-950 p-4"
+                  className="flex items-center justify-between rounded-xl border border-slate-800 bg-slate-950 p-4 light:border-slate-200 light:bg-slate-50"
                 >
-                  <span className="font-mono text-sm text-white">{site}</span>
-                  <span className="rounded-full border border-emerald-500/40 bg-emerald-500/10 px-3 py-1 text-xs font-semibold text-emerald-400">
+                  <span className="font-mono text-sm text-white light:text-slate-950">
+                    {site}
+                  </span>
+                  <span className="rounded-full border border-emerald-500/40 bg-emerald-500/10 px-3 py-1 text-xs font-semibold text-emerald-400 light:text-emerald-600">
                     Active
                   </span>
                 </div>
@@ -201,10 +209,10 @@ export default function Settings() {
           </div>
 
           <div>
-            <h3 className="font-bold text-white">
+            <h3 className="font-bold text-white light:text-slate-950">
               Security settings are configured for demo mode
             </h3>
-            <p className="mt-1 text-sm text-slate-300">
+            <p className="mt-1 text-sm text-slate-300 light:text-slate-600">
               This portfolio project uses mock data, so settings are interactive but not connected to a backend.
             </p>
           </div>
@@ -216,15 +224,19 @@ export default function Settings() {
 
 function SettingsCard({ icon, title, description, children }) {
   return (
-    <div className="rounded-2xl border border-slate-800 bg-slate-900 p-6">
+    <div className="rounded-2xl border border-slate-800 bg-slate-900 p-6 transition-colors duration-300 light:border-slate-200 light:bg-white">
       <div className="mb-5 flex items-start gap-3">
-        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-400">
+        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-400 light:bg-cyan-50 light:text-cyan-600">
           {icon}
         </div>
 
         <div>
-          <h3 className="font-bold text-white">{title}</h3>
-          <p className="mt-1 text-sm leading-6 text-slate-400">{description}</p>
+          <h3 className="font-bold text-white light:text-slate-950">
+            {title}
+          </h3>
+          <p className="mt-1 text-sm leading-6 text-slate-400 light:text-slate-600">
+            {description}
+          </p>
         </div>
       </div>
 
@@ -236,10 +248,12 @@ function SettingsCard({ icon, title, description, children }) {
 function InputField({ label, value }) {
   return (
     <div>
-      <label className="text-sm font-medium text-slate-300">{label}</label>
+      <label className="text-sm font-medium text-slate-300 light:text-slate-700">
+        {label}
+      </label>
       <input
         defaultValue={value}
-        className="mt-2 w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-sm text-white outline-none focus:border-cyan-500"
+        className="mt-2 w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-sm text-white outline-none focus:border-cyan-500 light:border-slate-300 light:bg-white light:text-slate-950"
       />
     </div>
   );
@@ -247,16 +261,20 @@ function InputField({ label, value }) {
 
 function ToggleRow({ title, description, enabled, onToggle }) {
   return (
-    <div className="flex items-center justify-between gap-4 rounded-xl border border-slate-800 bg-slate-950 p-4">
+    <div className="flex items-center justify-between gap-4 rounded-xl border border-slate-800 bg-slate-950 p-4 light:border-slate-200 light:bg-slate-50">
       <div>
-        <h4 className="font-medium text-white">{title}</h4>
-        <p className="mt-1 text-sm leading-6 text-slate-400">{description}</p>
+        <h4 className="font-medium text-white light:text-slate-950">
+          {title}
+        </h4>
+        <p className="mt-1 text-sm leading-6 text-slate-400 light:text-slate-600">
+          {description}
+        </p>
       </div>
 
       <button
         onClick={onToggle}
         className={`flex h-7 w-12 shrink-0 items-center rounded-full p-1 transition ${
-          enabled ? "bg-cyan-500" : "bg-slate-700"
+          enabled ? "bg-cyan-500" : "bg-slate-700 light:bg-slate-300"
         }`}
       >
         <span

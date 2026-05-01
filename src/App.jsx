@@ -10,6 +10,7 @@ import Settings from "./pages/Settings";
 export default function App() {
   const [activePage, setActivePage] = useState("overview");
   const [selectedAlert, setSelectedAlert] = useState(null);
+  const [isDarkMode, setIsDarkMode] = useState(true);
 
   function handleViewAlertDetails(alert) {
     setSelectedAlert(alert);
@@ -35,14 +36,19 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100">
-      <div className="flex min-h-screen">
-        <Sidebar activePage={activePage} setActivePage={setActivePage} />
+    <div className={isDarkMode ? "dark" : "light"}>
+      <div className="min-h-screen bg-slate-950 text-slate-100 transition-colors duration-300 light:bg-slate-50 light:text-slate-950">
+        <div className="flex min-h-screen">
+          <Sidebar activePage={activePage} setActivePage={setActivePage} />
 
-        <main className="flex-1">
-          <Topbar />
-          <div className="p-6 lg:p-8">{renderPage()}</div>
-        </main>
+          <main className="flex-1">
+            <Topbar
+              isDarkMode={isDarkMode}
+              onToggleTheme={() => setIsDarkMode(!isDarkMode)}
+            />
+            <div className="p-6 lg:p-8">{renderPage()}</div>
+          </main>
+        </div>
       </div>
     </div>
   );
