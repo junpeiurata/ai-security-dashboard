@@ -9,11 +9,26 @@ import Settings from "./pages/Settings";
 
 export default function App() {
   const [activePage, setActivePage] = useState("overview");
+  const [selectedAlert, setSelectedAlert] = useState(null);
+
+  function handleViewAlertDetails(alert) {
+    setSelectedAlert(alert);
+    setActivePage("alert-detail");
+  }
+
+  function handleBackToAlerts() {
+    setSelectedAlert(null);
+    setActivePage("alerts");
+  }
 
   function renderPage() {
     if (activePage === "overview") return <Dashboard />;
-    if (activePage === "alerts") return <Alerts onViewDetails={() => setActivePage("alert-detail")} />;
-    if (activePage === "alert-detail") return <AlertDetail onBack={() => setActivePage("alerts")} />;
+    if (activePage === "alerts") {
+      return <Alerts onViewDetails={handleViewAlertDetails} />;
+    }
+    if (activePage === "alert-detail") {
+      return <AlertDetail alert={selectedAlert} onBack={handleBackToAlerts} />;
+    }
     if (activePage === "compliance") return <Compliance />;
     if (activePage === "settings") return <Settings />;
     return <Dashboard />;
@@ -26,9 +41,7 @@ export default function App() {
 
         <main className="flex-1">
           <Topbar />
-          <div className="p-6 lg:p-8">
-            {renderPage()}
-          </div>
+          <div className="p-6 lg:p-8">{renderPage()}</div>
         </main>
       </div>
     </div>

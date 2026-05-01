@@ -39,7 +39,9 @@ export default function Sidebar({ activePage, setActivePage }) {
       <nav className="space-y-2">
         {navItems.map((item) => {
           const Icon = item.icon;
-          const isActive = activePage === item.id;
+          const isActive =
+            activePage === item.id ||
+            (activePage === "alert-detail" && item.id === "alerts");
 
           return (
             <button
