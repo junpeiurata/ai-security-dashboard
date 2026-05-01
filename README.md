@@ -6,7 +6,7 @@ This project simulates a SaaS dashboard that helps companies monitor client-side
 
 ## Live Demo
 
-Coming soon.
+[View Live Project] (ai-security-dashboard.vercel.app)
 
 ## Project Purpose
 
